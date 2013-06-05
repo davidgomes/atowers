@@ -17,7 +17,7 @@ void Game::setup()
 void Game::run()
 {
   while (running)
-{
+  {
     SDL_WaitEvent(&event);
     
     if (event.type == SDL_QUIT)
