@@ -3,7 +3,11 @@
 
 #include <SDL/SDL.h>
 
-#include "State.hpp"
+#include <string.h>
+#include "Wrapper.hpp"
+#include "MapParser.hpp"
+#include "Drawable.hpp"
+#include "Engine.hpp"
 
 using namespace std;
 
@@ -11,11 +15,15 @@ class Game
 {
   private:
     bool running;
+
     SDL_Event event;
 
-  public:
-    State *current_state;
+    SDL_Surface *screen;
+    Drawable *obj, *obj2;
 
+    Engine *engine;
+
+  public:
     void setup();
     void run();
 };
