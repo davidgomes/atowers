@@ -1,22 +1,20 @@
-project (atowers)
+SET (PROJECT_NAME "isoengine")
+
+project (isoengine)
 cmake_minimum_required (VERSION 2.8)
 
 find_package (SDL REQUIRED)
-#find_package (SDL_image REQUIRED)
+find_package (SDL_image REQUIRED)
 
 link_libraries (
   ${SDL_LIBRARY}
-  #${SDLIMAGE_LIBRARY}
+  ${SDLIMAGE_LIBRARY}
   SDLmain
 )
 
-#add_library (Tilemap.o src/Tilemap.cpp)
-#add_library (State.o src/State.cpp)
-#add_library (TitleState.o src/TitleState.cpp)
-#add_library (PlayState.o src/PlayState.cpp)
-#add_library (Player.o src/Player.cpp)
+file (GLOB_RECURSE ISOENGINE_SOURCES "src/*.cpp")
+file (GLOB_RECURSE ISOENGINE_INCLUDES "src/*.hpp")
 
-#link_libraries (Player.o PlayState.o Tilemap.o State.o TitleState.o)
-
-add_executable (atowers src/Game.cpp)
-#target_link_libraries (atowers Player.o PlayState.o Tilemap.o State.o TitleState.o)
+include_directories (ISOENGINE_INCLUDES)
+add_executable (${PROJECT_NAME} ${ISOENGINE_SOURCES})
+target_link_libraries (${PROJECT_NAME} ${SDL_LIBRARY} ${SDLIMAGE_LIRARY})
