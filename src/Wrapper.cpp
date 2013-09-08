@@ -1,3 +1,4 @@
+
 /*
   Includes, but is not limited to, several functions which
   serve as an interface to SDL's native drawing functions.
@@ -13,7 +14,7 @@ void Wrapper::set_pixel(SDL_Surface *screen, int x, int y, Uint8 color)
   *p = color;
 }
 
-Uint32 get_pixel32( SDL_Surface *surface, int x, int y ) {
+Uint32 Wrapper::get_pixel32( SDL_Surface *surface, int x, int y ) {
   Uint32 *pixels = (Uint32 *)surface->pixels;
   return pixels[ ( y * surface->w ) + x ];
 }
@@ -106,8 +107,3 @@ void Wrapper::draw_line(SDL_Surface *screen, int x1, int y1, int x2, int y2, Uin
   }
 }
 
-*SDL_Surface import_png(String file){
-  SDL_RWops *rwops = SDL_RWFromFile(file, "rb");
-  SDL_Surface *s = IMG_LoadPNG_RW(rwops);
-  return s;
-}
