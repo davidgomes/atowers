@@ -22,8 +22,8 @@ void Game::setup()
   obj->x = 4;
   obj->y = 3;
   obj2 = new Drawable(obj_test, 60, 40);
-  obj2->x = 1;
-  obj2->y = 1;
+  obj2->x = 4;
+  obj2->y = 2.5;
 
   FILE* mfile = fopen ("res/testmap.isomap","r");
   MapParser::load_file(mfile);

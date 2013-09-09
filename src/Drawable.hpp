@@ -1,6 +1,7 @@
 #ifndef DRAWABLE_HPP
 #define DRAWABLE_HPP
 
+#include <cmath>
 #include "Wrapper.hpp"
 
 class Drawable
@@ -12,7 +13,7 @@ class Drawable
     {
       bool operator()(const Drawable* a, const Drawable* b) const
       {
-        if (a->y != b->y)
+        if (ceil(a->y) != ceil(b->y) )
           return b->y < a->y;
         else
           return b->x < a->x;
@@ -21,8 +22,8 @@ class Drawable
 
     SDL_Surface *surface;
 
-    int x;
-    int y;
+    float x;
+    float y;
     int width;
     int height;
 
